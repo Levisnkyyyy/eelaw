@@ -1,0 +1,57 @@
+@import 'ben.scss';
+
+
+$color-1: #57A4FF; // F84525 rgba(85, 139, 255, 1) #48ffc4
+$color-2: #004fac; // 48ffc4 rgba(255, 51, 31, 1)
+$color-3: #7AED22;
+$color-4: #4EA010;
+$mycolors: $color-1,
+$color-2,
+$color-3,
+$color-4;
+
+$family-primary: 'Poppins', sans-serif;
+$family-secondary: 'Lato', sans-serif;
+@mixin fullheight($min) {
+    
+  @if $min == true {
+      min-height: calc(var(--vh, 1vh) * 100 - 110px);
+  }
+  @else {
+      height: calc(var(--vh, 1vh) * 100 - 110px);
+  }
+}
+@mixin font-primary() {
+  font-family: $family-primary;
+}
+@mixin font-secondary() {
+  font-family: $family-secondary;
+  letter-spacing: 1px;
+}
+body {
+    @include font-primary();
+  //  font-weight: 400;
+    font-weight: 300;
+}
+.nav {
+    height: 80px;
+    //@includebackground-color: #f6f6f6;
+    .links-container {
+        width: 80vw;
+        display: inline-block;
+    }
+    .phone-link {
+        display: inline-block;
+        .phone {
+            display: inline-block;
+        }
+    }
+}
+.square {
+    position: absolute;
+    height: 80vh;
+    width: 80vw;
+    left: 0; top: 0;
+    background-color: #f6f6f6;
+    z-index: -1;
+}
