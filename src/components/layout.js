@@ -15,13 +15,17 @@ import "./main.scss"
 import {TweenLite} from 'gsap';
 
 
-
 const Layout = ({ children }) => {
   useEffect(()=> {
-
+   /* window.addEventListener('scroll', (event) => {
+      TweenLite.to('#layout',1, {
+        y: -window.pageYOffset
+      });
+    });*/
   });
 
   return (
+
       <div id="layout">
         <Header />
           <main>{children}</main>
