@@ -5,24 +5,30 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "typeface-poppins"
 import Header from "./header"
 import "./normalize.css"
 import "./main.scss"
+import {TweenLite} from 'gsap';
+
+
 
 const Layout = ({ children }) => {
+  useEffect(()=> {
+
+  });
 
   return (
-    <>
-      <Header />
-        <main>{children}</main>
-        <footer>
+      <div id="layout">
+        <Header />
+          <main>{children}</main>
+          <footer>
 
-        </footer>
-    </>
+          </footer>
+      </div>
   )
 }
 

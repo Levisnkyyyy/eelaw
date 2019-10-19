@@ -1,10 +1,11 @@
 @import 'ben.scss';
 
 
-$color-1: #57A4FF; // F84525 rgba(85, 139, 255, 1) #48ffc4
-$color-2: #004fac; // 48ffc4 rgba(255, 51, 31, 1)
-$color-3: #7AED22;
-$color-4: #4EA010;
+$color-1: #3CCCB3; // F84525 rgba(85, 139, 255, 1) #48ffc4
+$color-2: #00577B; // 48ffc4 rgba(255, 51, 31, 1)
+$color-4: #0097D5;
+$color-5: #727272;
+$color-3: #3F4040;
 $mycolors: $color-1,
 $color-2,
 $color-3,
@@ -32,26 +33,553 @@ body {
     @include font-primary();
   //  font-weight: 400;
     font-weight: 300;
+    color: $color-3;
+    width: 100%;
+    @include touch {
+      .container {
+        padding-left: 5px !important;
+        padding-right: 5px;
+      }
+    }
+}
+header {
+  width: 100%;
+
 }
 .nav {
-    height: 80px;
-    //@includebackground-color: #f6f6f6;
-    .links-container {
-        width: 80vw;
-        display: inline-block;
-    }
-    .phone-link {
-        display: inline-block;
-        .phone {
-            display: inline-block;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #eee;
+    padding: 25px 30px 25px 30px;
+    width: 100%;
+    display: table;
+    z-index: 999;
+    @include tablet {
+      height: 110px;
+     // background-size: 80%;b
+    background-color: transparent;
+     position: absolute;
+  /*    .before {
+        &:after {
+          content: '';
+          position: absolute;
+          width: 20vw;
+          background-color: white;
+          height: 100%;
+          top: 0;
+          right: 0;
         }
+      }*/
+    }
+    
+    &-left {
+      display: table-cell;
+      width: 90%;
+      @include desktop {
+        width: 35%;
+      }
+        &_logo {
+        //  display: inline-block;
+          img {
+          height: 40px;
+          
+          @include tablet {
+            height: 60px;
+          }
+        }
+      }
+    }
+    &-right {
+      display: table-cell;
+      a {
+        color: black;
+        text-decoration: none;
+        font-weight: 400;
+        &:hover {
+          color: black;
+        }
+      }
+    //  float: right;
+      &_phone {
+        position: relative;
+        
+        a {
+          font-weight: 600;
+          color: $color-1;
+          &:hover {
+            color: rgb(66, 210, 185);
+          }
+        }
+        &:before {
+          content: '';
+          width: 70px;
+          height: 2px;
+          background-color: $color-1;
+          position: absolute;
+          left: -50%;
+          top: 50%;
+          transform: translate(50%, -50%);
+        }
+      }
+      &_menu {
+        
+      }
     }
 }
+
+body {
+  div:nth-child(odd) {
+ //   background-color: rgba(255,0,0,0.05);
+   // border: 1px solid red;
+  }
+  div:nth-child(even) {
+  //  background-color: rgba(0,255,0, 0.05);
+    //border: 1px solid green;
+  }
+}
+
 .square {
     position: absolute;
     height: 80vh;
-    width: 80vw;
+    width: 100vw;
     left: 0; top: 0;
-    background-color: #f6f6f6;
+    background-color: #eeeeee;
     z-index: -1;
+    @include desktop {
+      width: 80vw;
+      background-color: #eee;
+    }
 }
+.main {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  padding-top: 80px;
+  .container {
+    height: calc(80vh - 60px);
+    @include desktop{
+      height: 100%;
+    }
+  }
+  @include tablet {
+    text-align: left;
+    padding-left: 20px;
+  }
+.intro {
+  // text-align: center;
+   &-textlogo {
+     position: relative;
+     width: max-content;
+     margin-top: 40px;
+     left: 50%;
+     transform: translateX(-50%);
+     @include tablet {
+       left: auto;
+       transform: none;
+     }
+     h1 {
+       font-size: 2.9rem;
+       font-weight: 800;
+       color: black;
+       line-height: 40px;
+     }
+     label {
+       font-size: 0.9rem;
+       float: right;
+     }
+   }
+   &-article {
+     width: 100%;
+     margin-top: 50px;
+     @include tablet {
+       width: calc(80vw - 20px);
+     }
+     @include desktop {
+       width: 500px;
+     }
+     article {
+       width: 100%;
+      // text-align: center;
+      .article-title {
+        h2 {
+          font-size: 1.4rem;
+          @include desktop{
+            font-size: 2.5rem;
+          }
+        }
+      }
+      .article-content {
+        @include tablet {
+          margin-top: 10px;
+        }
+      }
+      .article-link {
+        margin-top: 5px;
+        @include tablet {
+          margin-top: 15px;
+        }
+        a {
+          color: $color-2;
+          font-weight: 500;
+        }
+      }
+     }
+   }
+ }
+ .banner {
+   position: absolute;
+   bottom: 0;
+   pointer-events: none;
+  left: 0;
+  width: 100%;
+   img {
+     width: 80vw;
+     display: block;
+     left: 50%;
+     transform: translateX(-50%);
+     position: relative;
+     @include touch {
+      max-width: 400px;
+     }
+   }
+   @include desktop {
+     left: auto;
+     //right: 0;
+      img {
+        width: 50vw;
+      //  left: auto;
+        transform: none;
+        right: 0;
+        max-width: 800px;
+      }
+   }
+ }
+}
+
+.services {
+  margin-top: 120px;
+  padding-left: 15px;
+  padding-right: 15px;
+  .service {
+    position: relative;
+    &:not(:first-child) {
+      margin-top: 80px;
+    }
+
+    &-image {
+      width: 240px;
+      position: relative;
+      img {
+        width: 100%;
+      }
+      .service-square {
+        position: absolute;
+        top: -15px;
+        right: -35px;
+        width: 70px;
+        height: 80%;
+        z-index: -1;
+        background-color: #eee;
+      }
+    }
+    &-title {
+      position: absolute;
+      transform: translateY(-40px);
+      right: 0;
+      h2 {
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 40px;
+          height: 1px;
+          background-color: $color-2;
+        }
+        position: relative;
+        padding-left: 50px;
+        font-size: 1.4rem;
+        color: $color-2;
+        font-weight: 600;
+      }
+    }
+    &-content {
+      color: $color-5;
+      margin-top: 8px;
+    }
+    &-link {
+      margin-top: 8px;
+      a{
+        color: $color-2;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+    &.right {
+      .service-image {
+       // height: 180px;
+        margin-left: auto;
+        img {
+         // width: 240px;
+        }
+        .service-square {
+          top: auto;
+          right: auto;
+          left: -35px;
+          bottom: -20px;
+        }
+      }
+      .service-title {
+        right: auto;
+        left: 0;
+        
+        h2 {
+          padding-right: 50px;
+          padding-left: 0;
+          &:before {
+            left: auto;
+            right: 0;
+          }
+     /*     padding-left: 0;
+          padding-right: 50px;
+          &:before {
+            left: auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $color-2;
+          }*/
+        }
+      }
+    }
+
+  }
+
+
+  @include tablet { // .service
+    .service {
+      width: 500px;
+      &.right {
+        margin-left: auto;
+        .service-title {
+      //    padding-left: 40px;
+        }
+      }
+      &.left {
+        .service-title {
+          padding-right: 40px;
+        }
+      }
+      .service-image {
+        width: 300px;
+      }
+    }
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+    .service {
+    //  min-height: 500px;
+      &:not(:first-child) {
+        margin-top: 120px;
+      }
+      width: 100%;
+      &-image {
+        width: 500px !important;
+        &.smaller {
+    //      width: 490px !important;
+        }
+      }
+      &-title {
+        transform: none;
+        top: 50px;
+        h2 {
+          font-size: 1.9rem;
+          padding-left: 120px;
+          &:before {
+            width: 90px;
+          }
+        }
+      }
+      &-wrapper {
+        position: absolute;
+        top: 130px;
+        
+        max-width: 500px;
+      }
+      &.left {
+        .service-image {
+          left: 80px;
+        }
+        .service-title {
+          left: 550px;
+        }
+        .service-wrapper {
+          left: 673px;
+        }
+      }
+      &.right {
+        .service-image {
+          right: 80px;
+        }
+        .service-title {
+          left: auto;
+          right: 550px;
+          h2 {
+            padding-left: 0;
+            padding-right: 120px;
+          }
+        }
+        .service-wrapper {
+          left: auto;
+          right: 673px;
+          direction: rtl;
+        }
+      }
+    }
+}
+
+}
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam:700&display=swap');
+.quote {
+  margin-top: 120px;
+  position: relative;
+  @include tablet {
+    margin-top: 150px;
+  }
+  .container {
+    max-width: 90vw;
+    @include desktop {
+      max-width: 1000px;
+    }
+    
+  }
+  .commas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    transform: translate(-15px, -100px);
+   // transform: rotate(-10deg);
+    z-index: -1;
+    font-size: 220px;
+    font-weight: 700;
+    color: rgba(60, 204, 180, 0.266);
+    font-family: 'Be Vietnam', sans-serif;
+    @include desktop {
+      transform: translate(-70px, -170px);
+      font-size: 310px;
+    }
+  }
+  h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 300;
+    @include desktop {
+      font-size: 2.1rem;
+      text-align: left;
+    }
+  }
+  .quote-profile {
+    margin-top: 30px;
+    @include touch {
+      position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    }
+    >* {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    img {
+      height: 55px;
+    }
+    .quote-profile-desc {
+      
+      margin-left: 20px;
+      h4 {
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+      label {
+        font-size: 0.9rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.geo {
+  margin-top: 150px;
+  .map {
+    height: 300px;
+    
+    width: 100%;
+    background-image: linear-gradient(to bottom, #fff, rgba(255,255,255,0) 20%), url('/images/map.png');
+    background-size: cover;
+    background-position: 55% 40%;
+    @include tablet {
+      height: 400px;
+    background-position: 50% 40%;
+    }
+  }
+
+  .map-overlay {
+    position: relative;
+    top: -70px;
+    width: 90vw;
+    height: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    .map-effect {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      left: -7px;
+      top: -7px;
+      z-index: -1;
+      background-color: $color-1;
+    }
+    .content {
+      background-color: white;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.08);
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      text-align: center;
+      h3 {
+        font-size: 1.6rem;
+      }
+      p {
+        margin-top: 7px;
+        color: $color-5;
+      }
+    }
+    @include desktop {
+      max-width: 1200px;
+      .content {
+        text-align: left;
+        padding: 20px;
+        h3 {
+          font-size: 2rem;
+        }
+        p {
+
+        }
+      }
+    }
+  }
+}
+/*
+body {
+  height: 4000px;
+}
+#layout {
+  position: fixed;
+  width: 100%;
+}*/

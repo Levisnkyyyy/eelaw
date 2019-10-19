@@ -1,34 +1,38 @@
 
 import React from "react"
-
-const Header = () => (
-  <header>
+import {Link} from 'gatsby';
+const Header = () => {
+  return <header>
     <nav className="nav">
-      <div className="links-container">
-      <div className="columns links">
-        <div className="column links-item logo">
-          LOGO
+      <div className="nav-left">
+        <div className="nav-left_logo">
+          <img src="images/erezlogo.png" />
         </div>
-        <div className="column links-item">
-          Home
-        </div>
-        <div className="column links-item">
-          About
-        </div>
-        <div className="column links-item">
-          Expertise
-        </div>
+
       </div>
-      </div>
-      <div className="phone-link">
-        <hr />
-        <div className="phone">
-          054 54545454
+      <div className="nav-right">
+          <div className="columns is-hidden-touch">
+            <div className="column">
+              <Link to="/">Home</Link>
+            </div>
+            <div className="column">
+              <Link to="/">About</Link>
+            </div>
+            <div className="column before">
+              <Link to="/">Expertise</Link>
+            </div>
+            <div className="column nav-right_phone">
+              <Link to="/">+972 54 - 543 - 5444</Link>
+            </div>
+          </div>
+          <div className="nav-right_menu is-hidden-desktop">
+            MENU
+          </div>
+          
         </div>
-      </div>
     </nav>
-  </header>
-)
+  </header>;
+}
 
 
 export default Header
