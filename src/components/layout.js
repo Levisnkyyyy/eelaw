@@ -14,7 +14,6 @@ import "./normalize.css"
 import "./main.scss"
 import {TweenLite} from 'gsap';
 
-
 const Layout = ({ children }) => {
   useEffect(()=> {
    /* window.addEventListener('scroll', (event) => {
@@ -22,7 +21,8 @@ const Layout = ({ children }) => {
         y: -window.pageYOffset
       });
     });*/
-  });
+    //var controller = new ScrollMagic.Controller();
+  },[]);
 
   return (
 
