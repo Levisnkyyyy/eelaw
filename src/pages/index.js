@@ -1,8 +1,7 @@
 import React, {useEffect} from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+
 import SEO from "../components/seo"
 import lang from '../json/lang.en.json';
 import posts from '../json/posts.json';
@@ -32,13 +31,13 @@ const IndexPage = () => {
                 <p>{posts[0].content.substr(0, 120) + " .."}</p>
               </div>
               <div className="article-link">
-                <a>read more</a>
+                <a href="/">read more</a>
               </div>
             </article>
           </div>
         </div>
         <div className="banner">
-          <img src="/images/banner.png" />
+          <img src="/images/banner.png" alt="banner" />
         </div>
       </div>
     </div>
@@ -52,7 +51,7 @@ const IndexPage = () => {
           <div className="commas">"</div>
           <h3>The guiding principle at our office is an individual approach to each case and each client.</h3>
           <div className="quote-profile">
-            <img src="/images/avatar.png" className="avatar" />
+            <img src="/images/avatar.png" className="avatar" alt="Erez" />
             <div className="quote-profile-desc">
               <h4>Erez Eliahu</h4>
               <label>Adovcate & Notary</label>

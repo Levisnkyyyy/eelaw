@@ -1,11 +1,13 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect } from 'react';
 import posts from '../../json/posts';
 import { Link } from 'gatsby';
-import { TimelineMax, TweenMax, Linear, Power2 } from 'gsap';
+import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import * as ScrollMagic from 'ScrollMagic';
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import 'ScrollMagic/ScrollMagic/uncompressed/plugins/debug.addIndicators';
 import {isMobile} from 'react-device-detect';
+require('paroller.js');  
+
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 //let controller = React.createContext(new ScrollMagic.Controller());
 const Services = () => {
@@ -27,7 +29,12 @@ const Service = ({ service, align, id }) => {
     useEffect(() => {
         var elm = '#service-'+id;
         if (servRef !== null) {
+         //   document.getElementById("service-"+id).paroller({ factor: 0.5, factorXs: 0.2, type: 'foreground', direction: 'horizontal' });
             var controller = new ScrollMagic.Controller();
+            let obj = {newY: 80, newImage: 30};
+            let tt = TweenMax.to(obj, 1, {newY: -60, newImage: -30, onUpdate: ()=> {}})
+
+
             var tl_texts = new TimelineMax();
             var tweened = false;
             var tl_title = (isMobile) ? -85 : -25;
@@ -38,26 +45,21 @@ const Service = ({ service, align, id }) => {
             .from(elm + ' .parallax2', 1, {y: tl_square},0)
             .to(elm + ' .parallax1', 1, {y: tl_title_end},0)
             .to(elm + ' .parallax2', 1, {y: tl_square_end},0);
-            var scene = new ScrollMagic.Scene({
+            new ScrollMagic.Scene({
                     duration: (align === 'left' ? 800 : 1100),
                 //  triggerElement: "#service-"+id,
                     offset: 0,
                     triggerElement: elm,
                     triggerHook: "onEnter",
                     reverse: true
-            }).addIndicators()
-            .setTween(tl_texts)
+            })//.addIndicators()
+            .setTween(tt)
             .on('enter', (e)=> {
                 if(e.scrollDirection !== 'REVERSE' && tweened === false) {
-                   
-                    document.querySelectorAll(elm+'>div').forEach(function(e,index) {
-                        TweenMax.fromTo(e, 1, {opacity: 0, y: 200}, {opacity: 1, y: 0, onComplete: ()=> {
-                            if(index === 2) {
-                               //scene.setTween(tl_texts);
-                            }
+                        TweenMax.fromTo(elm+' .service-image', 1, {opacity: 0, y: 100}, {opacity: 1, y: 0,
+                        onComplete: ()=> {
+                            tweened = true;
                         }});
-                        
-                    })
                 }
             })
             .on('leave', (e)=> {
@@ -65,13 +67,21 @@ const Service = ({ service, align, id }) => {
                     tweened = true;
                 }
             })
+            .on('progress', (e)=> {
+                if(tweened === true) {
+                    
+                TweenMax.to(elm+' .parallax3', 0.4, {y: obj.newImage, ease: Power2.easeOut});
+                }
+                TweenMax.to(elm+' .parallax1', 0.4, {y: obj.newY, ease: Power2.easeOut});
+               // console.log(e.progress);
+            })
             .addTo(controller);
             
         }
-    },[]);
+    },[align, id]);
     return  <div ref={servRef} id={"service-"+id} className={"service " + align + " id-" + id}>
         <div className={"service-image " + ((align === 'left') ? '' : 'smaller')}>
-            <img src={"/images/" + service.image} />
+            <img className="parallax3" src={"/images/" + service.image} alt={service.title} />
             <div className="service-square parallax2">
 
             </div>

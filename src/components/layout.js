@@ -7,13 +7,11 @@
 
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import "typeface-poppins"
 import Header from "./header"
 import "./normalize.css"
 import "./main.scss"
-import {TweenLite} from 'gsap';
-
+import ParallaxMagic from './scroll'
 const Layout = ({ children }) => {
   useEffect(()=> {
    /* window.addEventListener('scroll', (event) => {
@@ -21,6 +19,7 @@ const Layout = ({ children }) => {
         y: -window.pageYOffset
       });
     });*/
+    ParallaxMagic("#layout");
     //var controller = new ScrollMagic.Controller();
   },[]);
 
