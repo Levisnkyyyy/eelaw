@@ -34,6 +34,7 @@ body {
   //  font-weight: 400;
     font-weight: 300;
     color: $color-3;
+    overflow-x: hidden;
     width: 100%;
     @include touch {
       .container {
@@ -575,11 +576,11 @@ body {
     }
   }
 }
-
+/*
 body {
   height: 5000px;
 }
 #layout {
   position: fixed;
   width: 100%;
-}
+}*/

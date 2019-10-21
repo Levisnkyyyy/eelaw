@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
         y: -window.pageYOffset
       });
     });*/
-    ParallaxMagic("#layout");
+    //ParallaxMagic("#layout");
     //var controller = new ScrollMagic.Controller();
   },[]);
 
