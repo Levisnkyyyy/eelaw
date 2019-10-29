@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import posts from '../../json/posts';
+import services from '../../json/services';
 import { Link } from 'gatsby';
 import { TimelineMax, TweenMax, Power2, Linear } from 'gsap';
 import {useMediaQuery} from 'react-responsive'; // NOT WORKING ON BUILD VERSION
@@ -8,17 +8,12 @@ import ScrollMagic from 'ScrollMagic';
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 //
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-export const mobile_query = '(max-width: 768px)';
-export const tablet_query = '(min-width: 769px)';
-export const touch_query = '(max-width: 859px)';
-export const desktop_query = '(min-width: 960px)';
-
+import {touch_query} from '../../utilities/responsive';
 //let controller = React.createContext(new ScrollMagic.Controller());
 const Services = () => {
-    let data = posts.filter(x => x.type === 'service');
     return <>
-        {data.map((serv, index) =>
-            <Service key={serv.title} id={index} service={serv} align={serv.id % 2 === 0 ? 'left' : 'right'} />
+        {services.map((serv, index) =>
+            <Service key={serv.title} id={index} service={serv} align={serv.id % 2 === 1 ? 'left' : 'right'} />
         )}
     </>;
 };

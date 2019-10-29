@@ -1,36 +1,44 @@
 
-import React from "react"
-import {Link} from 'gatsby';
-const Header = () => {
-  return <header>
-    <nav className="nav">
-      <div className="nav-left">
-        <div className="nav-left_logo">
-          <img src="images/erezlogo.png" alt="logo" />
-        </div>
+import React, {useEffect} from "react"
 
-      </div>
-      <div className="nav-right">
-          <div className="columns is-hidden-touch">
-            <div className="column">
-              <Link to="/">Home</Link>
-            </div>
-            <div className="column">
-              <Link to="/">About</Link>
-            </div>
-            <div className="column before">
-              <Link to="/">Expertise</Link>
-            </div>
-            <div className="column nav-right_phone">
-              <Link to="/">+972 54 - 543 - 5444</Link>
-            </div>
-          </div>
-          <div className="nav-right_menu is-hidden-desktop">
-            MENU
-          </div>
-          
-        </div>
-    </nav>
+import {TweenMax,TimelineMax, Linear, Power2} from 'gsap';
+import {useMediaQuery} from 'react-responsive'; // NOT WORKING ON BUILD VERSION
+import {touch_query} from '../utilities/responsive';
+import ScrollMagic from 'ScrollMagic';
+import Navbar from "../components/layout/navbar";
+/* FOLLOWING LINE TO BE REMOVED FROM BUILD */
+import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+//
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
+
+const Header = ({page_header}) => {
+  const isTouch = useMediaQuery({query: touch_query});
+  useEffect(()=> {
+    ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+    //TweenMax.to('.left_square', 2, {rotation: 0.01, ease: Power2.easeOut});
+    //TweenMax.to('.right_square', 2, {rotation: 0.01, ease: Power2.easeOut, delay: 0.6});
+    var controller = new ScrollMagic.Controller();
+    new ScrollMagic.Scene({
+      triggerElement: '.main',
+      triggerHook: 0,
+      offset: 10
+    })
+    .on('enter', (e)=> {
+        TweenMax.to('.nav', 0.5, {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'});
+    })
+    .on('leave', ()=> {
+      TweenMax.to('.nav', 0.2, {backgroundColor: 'rgba(255,255,255,0)', boxShadow: '0'});
+    })
+    .addIndicators()
+    .addTo(controller);
+    if(!isTouch) {
+      TweenMax.to('#index_header', 50, {backgroundPosition: '30vw 0', ease: Linear.easeNone });
+    }
+  },[]);
+  return <header>
+    <Navbar />
+    {page_header}
   </header>;
 }
 
