@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import services from '../../json/services';
 import { Link } from 'gatsby';
 import { TimelineMax, TweenMax, Power2, Linear } from 'gsap';
@@ -21,10 +21,11 @@ export default Services;
 
 const Service = ({ service, align, id }) => {
     let isMobile = useMediaQuery({query: touch_query});
+    const servRef = useRef(null);
     useEffect(() => {
         var elm = '#service-'+id;
         ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-      //  if (servRef !== null) {
+      if (servRef.current !== null) {
             var controller = new ScrollMagic.Controller();
             let elements = (e) => elm+ ' .service-'+e;
             let transitions = {
@@ -40,7 +41,7 @@ const Service = ({ service, align, id }) => {
                 title_y: transitions.to.title_y,
                 square_y: transitions.to.square_y});
             var tweened = false;
-            new ScrollMagic.Scene({
+            var scene = new ScrollMagic.Scene({
                     duration: (align === 'left' ? 900 : 1100),
                     offset: 0,
                     triggerElement: elm,
@@ -67,9 +68,15 @@ const Service = ({ service, align, id }) => {
             })
             .addTo(controller);
             
-     //   }
+        }
+        return ()=> {
+            controller.destroy(true);
+            controller = null;
+            scene.destroy(true);
+            scene = null;
+        }
     },[align, id]);
-    return  <div id={"service-"+id} className={"service " + align}>
+    return  <div ref={servRef} id={"service-"+id} className={"service " + align}>
         <div className={"service-image " + ((align === 'left') ? '' : 'smaller')}>
             <img className="service-image_img" src={"/images/" + service.image} alt={service.title} />
             <div className="service-square" style={{width: Math.floor(Math.random()*300+50)+'px'}}>

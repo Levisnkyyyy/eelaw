@@ -10,10 +10,10 @@ import PropTypes from "prop-types"
 import "typeface-poppins"
 import Header from "../header"
 import "../../assets/normalize.css"
-import "../../assets/main.scss"
+
 import Footer from "./footer"
 import ParallaxMagic from '../scroll'
-const Layout = ({ header, children }) => {
+const Layout = ({ header, navbarColored = false, idpage, children }) => {
   useEffect(() => {
     /* window.addEventListener('scroll', (event) => {
        TweenLite.to('#layout',1, {
@@ -22,13 +22,14 @@ const Layout = ({ header, children }) => {
      });*/
     //ParallaxMagic("#layout");
     //var controller = new ScrollMagic.Controller();
+    require("../../assets/main-rtl.scss");
   }, []);
 
   return (
 
     <div id="layout">
-      <Header page_header={header} />
-      <main>{children}</main>
+      <Header page_header={header} navbarColored={navbarColored} />
+      <main id={idpage}>{children}</main>
       <footer>
       <Footer />
       </footer>
