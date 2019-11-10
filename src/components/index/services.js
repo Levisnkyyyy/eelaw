@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import services from '../../json/services';
 import { Link } from 'gatsby';
+import { useIntl } from "gatsby-plugin-intl"
 import { TimelineMax, TweenMax, Power2, Linear } from 'gsap';
 import {useMediaQuery} from 'react-responsive'; // NOT WORKING ON BUILD VERSION
 import ScrollMagic from 'ScrollMagic';
 /* FOLLOWING LINE TO BE REMOVED FROM BUILD */
-import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+//import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 //
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import {touch_query} from '../../utilities/responsive';
@@ -20,6 +21,7 @@ const Services = () => {
 export default Services;
 
 const Service = ({ service, align, id }) => {
+    const intl = useIntl();
     let isMobile = useMediaQuery({query: touch_query});
     const servRef = useRef(null);
     useEffect(() => {
@@ -47,7 +49,7 @@ const Service = ({ service, align, id }) => {
                     triggerElement: elm,
                     triggerHook: "onEnter",
                     reverse: true
-            }).addIndicators()
+            })
             .setTween(tt)
             .on('enter', (e)=> {
                 if(tweened ===false) {
@@ -78,21 +80,21 @@ const Service = ({ service, align, id }) => {
     },[align, id]);
     return  <div ref={servRef} id={"service-"+id} className={"service " + align}>
         <div className={"service-image " + ((align === 'left') ? '' : 'smaller')}>
-            <img className="service-image_img" src={"/images/" + service.image} alt={service.title} />
-            <div className="service-square" style={{width: Math.floor(Math.random()*300+50)+'px'}}>
+            <img className="service-image_img" src={"/images/" + service.image} alt={intl.formatMessage({id: service.title})} />
+            <div className="service-square" style={{width: Math.floor(Math.random()*200+50)+'px'}}>
 
             </div>
         </div>
 
         <div className="service-title">
-            <h2>{service.title}</h2>
+            <h2>{intl.formatMessage({id:service.title})}</h2>
         </div>
         <div className={("service-wrapper " + ((!isMobile) ? 'parallax1' : ''))}>
             <div className="service-content">
-                <p>{service.content.substr(0, 150) + " .."}</p>
+                <p>{intl.formatMessage({id:service.preview})}</p>
             </div>
             <div className="service-link">
-                <Link to="/">read more</Link>
+                <Link to={"/expertise/"+service.url}>{intl.formatMessage({id: 'readmore'})}</Link>
             </div>
         </div>
         

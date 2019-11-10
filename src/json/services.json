@@ -1,27 +1,35 @@
 [
     {
         "id": "1",
-        "title": "Wills & Inheritance",
+        "title": "services.1.title",
+        "url": "wills",
         "image": "will.png",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. "
+        "preview": "services.1.preview",
+        "content": "services.1.content"
     },
     {
         "id": "2",
-        "title": "Real Estate",
+        "title": "services.2.title",
+        "url": "realestate",
         "image": "real.png",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. "
+        "preview": "services.2.preview",
+        "content": "services.2.content"
     },
     {
         "id": "3",
-        "title": "Commercial",
+        "title": "services.3.title",
+        "url": "commercial",
         "image": "comm.png",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. "
+        "preview": "services.3.preview",
+        "content": "services.3.content"
     }
     ,
     {
         "id": "4",
-        "title": "Energy",
+        "title": "services.4.title",
+        "url": "energy",
         "image": "energy.png",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. "
+        "preview": "services.4.preview",
+        "content": "services.4.content"
     }
 ]

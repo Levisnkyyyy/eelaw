@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import Icofont from 'react-icofont';
+
 import posts from "../../json/posts";
 import { TweenMax, Power2} from 'gsap';
 
@@ -41,8 +41,8 @@ const BlogSlider = ()=> {
     <SliderArticle id={selected} direction={direction} switchto={selected} />
     <div className="blogslider-footer">
         <div className="buttons">
-            <div className="left" onClick={()=> handleNavClick(-1)}><Icofont icon="arrow-left" /></div>
-            <div className="right" onClick={()=> handleNavClick(1)}><Icofont icon="arrow-right" /></div>
+            <div className="left" onClick={()=> handleNavClick(-1)}><i class="icofont-arrow-left"></i></div>
+            <div className="right" onClick={()=> handleNavClick(1)}><i class="icofont-arrow-right"></i></div>
         </div>
         <div className="navigation">
             {posts.filter(e=>e.type === 'slider').map((pt,index) =>

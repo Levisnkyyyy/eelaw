@@ -1,35 +1,103 @@
-import React from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Link} from 'gatsby';
+import {useIntl, changeLocale} from 'gatsby-plugin-intl'
+import {TweenMax} from 'gsap';
 
 const Navbar = ({colored = false})=> {
-    const styles = colored ? {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'} : {};
-    return <nav className="nav" style={styles}>
+    const intl = useIntl();
+    const styles = (colored) ? {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'} : {};
+    const coloredstyle = {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'};
+    const menu = useRef(null);
+    const [mobileMenu,setMenu] = useState(false);
+    const [localeChange, setLocale] = useState(intl.locale);
+    useEffect(()=> {
+      if(localeChange !== intl.locale)
+      {
+        changeLocale(localeChange);
+     //   setTimeout(()=> <Redirect to={`/`} />, 300);
+      }
+    }, [localeChange, intl.locale]);
+    const handleMenuClick = ()=> {
+      if(mobileMenu) {
+        TweenMax.to(menu.current, 0.5, {height: '0', 
+        onStart: ()=> {
+
+        },
+        onComplete:()=> {
+          TweenMax.set(menu.current, {visibility: 'hidden'});
+        }});
+      } else {
+        TweenMax.to(menu.current, 0.5, {height: '220px', onStart:()=> {
+          let navbar = document.getElementById("navbar");
+          if(!navbar.classList.contains('colored')) {
+            document.getElementById("navbar").classList.add("colored");
+            TweenMax.to('.nav', 0.5, {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'});
+          }
+          TweenMax.set(menu.current, {visibility: 'visible'});
+        }});
+      }
+      setMenu(!mobileMenu);
+    }
+    return <><nav className={"nav " + ((colored) ? 'colored': '')} id="navbar" style={styles}>
     <div className="nav-left">
       <div className="nav-left_logo">
         <Link to="/"><img src="/images/erezlogo.png" alt="logo" /></Link>
+        <Link to="/"><div className="textlogo" style={{display: 'inline-block'}}>
+          <h1>{intl.formatMessage({ id: "erez_eliahu" })}</h1>
+          <label>{intl.formatMessage({id: "advocate_notary"})}</label>
+        </div></Link>
       </div>
 
     </div>
     <div className="nav-right">
         <div className="columns is-hidden-touch">
           <div className="column">
-            <Link to="/">Home</Link>
+            <Link to="/">{intl.formatMessage({id: "nav.home"})}</Link>
           </div>
           <div className="column">
-            <Link to="/about">About</Link>
+            <Link to="/about">{intl.formatMessage({id: "nav.about"})}</Link>
           </div>
-          <div className="column before">
-            <Link to="/expertise">Expertise</Link>
+          <div className="column">
+            <Link to="/expertise">{intl.formatMessage({id: "nav.expertise"})}</Link>
           </div>
           <div className="column nav-right_phone">
             <Link to="/">+972 54 - 543 - 5444</Link>
           </div>
+          <div className="column language">
+             <Link to="/he">{intl.locale}</Link>
+          </div>
         </div>
-        <div className="nav-right_menu is-hidden-desktop">
-          MENU
+        <div className="nav-right_menu is-hidden-desktop" onClick={()=> handleMenuClick()}>
+          
+            <MenuIcon />
+          
         </div>
       </div>
-
+      
   </nav>
+  <div ref={menu} className={"mobile-menu " + (mobileMenu ? 'active' : '')}>
+      <ul className="mobile-menu_ul">
+          <li className="selected"><Link to="/" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.home"})}</Link></li>
+          <li><Link to="/about" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.about"})}</Link></li>
+          <li><Link to="/expertise" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.expertise"})}</Link></li>
+          <li><Link to="/#contact" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.contact"})}</Link></li>
+      </ul>
+  </div>
+  </>
 }
 export default Navbar;
+
+
+
+const MenuIcon = () => {
+    return <div className="menuicon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16">
+        <g id="svg_menuicon" transform="">
+    <rect id="line1" width="22" height="2" rx="1" transform="" fill="#000"/>
+    <rect id="line2" width="22" height="2" rx="1" transform="translate(0 7)" fill="#000"/>
+    <rect id="line3" width="22" height="2" rx="1" transform="translate(0 14)" fill="#000"/>
+  </g>
+  </svg>
+    </div>
+  
+}

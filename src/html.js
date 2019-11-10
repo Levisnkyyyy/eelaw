@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {TweenLite} from 'gsap';
+
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
@@ -11,6 +11,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+       
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

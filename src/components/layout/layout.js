@@ -9,20 +9,21 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import "typeface-poppins"
 import Header from "../header"
+import "../../assets/main-rtl.scss"
 import "../../assets/normalize.css"
+import "../../assets/icofont.min.css"
+import Footer from "./footer";
 
-import Footer from "./footer"
-import ParallaxMagic from '../scroll'
 const Layout = ({ header, navbarColored = false, idpage, children }) => {
+ // const intl = useIntl();
+
   useEffect(() => {
-    /* window.addEventListener('scroll', (event) => {
-       TweenLite.to('#layout',1, {
-         y: -window.pageYOffset
-       });
-     });*/
-    //ParallaxMagic("#layout");
-    //var controller = new ScrollMagic.Controller();
-    require("../../assets/main-rtl.scss");
+   /* let dir = 'ltr';
+    if(intl.locale === 'he') {
+      dir = 'rtl';
+    }
+    import("../../assets/main-"+dir+".scss");*/
+ 
   }, []);
 
   return (

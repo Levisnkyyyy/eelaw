@@ -1,2 +1,17 @@
 @import "direction_rtl.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,600,700,800&display=swap');
+$family-primary: 'Rubik', sans-serif;
+$family-secondary: 'Lato', sans-serif;
 @import "main.scss";
+
+body {
+    font-size: 17px;
+}
+.blogslider {
+    .buttons {
+        float: right;
+    }
+    .navigation { float:right; }
+}
+

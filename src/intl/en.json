@@ -1,0 +1,87 @@
+{
+    "lang": "EN",
+    "erez_eliahu": "Erez Eliahu",
+    "advocate_notary": "Advocate & Notary",
+    "readmore": "Read more",
+    "back": "Back",
+    "titles": {
+        "home": "Home",
+        "expertise": "Expertise",
+        "about": "About"
+    },
+    "index": {
+        "heading": "ISRAELI BOUTIQUE LAW FIRM",
+        "content": "Specializing in Israeli Law, Real Estate, Inheritance Law, Wills & Banking.",
+        "about": "About",
+        "erez": "Erez",
+        "about_text": "Erez Eliahu, Advocate & Notary, has been practicing law for the past 18 years in Israel and abroad, representing individuals and corporations in Israel and overseas.\n ​ Through our Offices In Israel, New York and New Jersey and our global network of correspondents, we are able to provide our customers with a comprehensive solution to all their legal matters in Israel including, but not limited to, all Real Estate Transaction (purchase and selling), Banking, Tax Resolutions, Wills, Inheritance Law and Financial Disputes as well as Israeli Notary Services, Legal Translations, Documents Original verification's, Etc.\n\n At Erez Eliahu, Israeli Advocate & Notary, we’re proud to bring you our professionalism and expertise, together with the comfort of your schedule and time zone. We are passionate about serving our clients and making sure all your Israeli Legal needs will be taken care off, at the highest level of Service.",
+        "keypoints": {
+            "1": {
+                "title": "Worldwide Services",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            "2": {
+                "title": "Worldwide Services2",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            "3": {
+                "title": "Worldwide Services3",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            "4": {
+                "title": "Worldwide Services4",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            }
+        },
+        "areaof": "Area of ",
+        "practice": "Practice",
+        "quote": "The guiding principle at our office is an individual approach to each case and each client.",
+        "localknowledge": "Local knowledge with global experience",
+        "localknowledgepara": "Paragraph",
+        "behappy": "I will be happy to hear from you.",
+        "form": {
+            "fullname": "Full Name",
+            "phone": "Phone Number",
+            "email": "Email Address",
+            "text": "Text",
+            "send": "Send"
+        }
+    },
+    "services": {
+        "1": {
+            "title": "Wills & Inheritance",
+            "preview": "Wills preparation by Notary, Mutual Wills, Will disputes, Distribution of property, Gifts and all issues concerning Inheritance law.  ",
+            "content": "full content"
+        },
+        "2": {
+            "title": "Real Estate",
+            "preview": "Selling, Purchasing, Investments in Israel's Real Estate, including resolving all Real Estate disputes, Tax Issues, Etc.",
+            "content": "full content"
+        },
+        "3": {
+            "title": "Commercial",
+            "preview": "Commercial agreements, B2B settlements, corporation establishments and registry, share purchase, company liquidation, Insolvency, etc.    ",
+            "content": "full content"
+        },
+        "4": {
+            "title": "Energy",
+            "preview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ",
+            "content": "full content"
+        }
+    },
+    "about": {
+        "fulltext": "Erez Eliahu, Advocate & Notary, has been practicing law for the past 18 years in Israel and abroad, representing individuals and corporations in Israel and overseas.<br /> ​ Through our Offices In Israel, New York and New Jersey and our global network of correspondents, we are able to provide our customers with a comprehensive solution to all their legal matters in Israel including, but not limited to, all Real Estate Transaction (purchase and selling), Banking, Tax Resolutions, Wills, Inheritance Law and Financial Disputes as well as Israeli Notary Services, Legal Translations, Documents Original verification's, Etc. <br /><br /> At Erez Eliahu, Israeli Advocate & Notary, we’re proud to bring you our professionalism and expertise, together with the comfort of your schedule and time zone. We are passionate about serving our clients and making sure all your Israeli Legal needs will be taken care off, at the highest level of Service."
+    },
+    "footer": {
+        "address": "Ma'ale Hashihrur 9",
+        "email": "erez@ee-law.com",
+        "phone": "05444444",
+        "copyright": "All rights reserved © Erez Eliahu 2020"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "expertise": "Expertise",
+        "contact": "Contact"
+    }
+}

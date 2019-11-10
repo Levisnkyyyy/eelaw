@@ -1,6 +1,8 @@
 import React from 'react'
 import keypoints from "../../json/keypoints"
+import { useIntl } from "gatsby-plugin-intl"
 const About = ()=> {
+    const intl = useIntl();
     return <section className="about">
         <div className="container">
             <div className="about-leftside">
@@ -8,12 +10,10 @@ const About = ()=> {
                     
                 </div>
                 <div className="about-title">
-                    ABOUT <span>EREZ</span>
+                    {intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "index.erez"})}</span>
                 </div>
                 <div className="about-paragraph">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-
-Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
+                    <p>{intl.formatMessage({id: "index.about_text"})}</p>
                 </div>
             </div>
             <div className="about-rightside">
@@ -23,7 +23,7 @@ Ut enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, 
                 </div>
                 <div className="about-keypoints">
                     {keypoints.map((x) =>
-                        <Keypoint img={x.img} title={x.title} text={x.text} />    
+                        <Keypoint img={x.img} title={intl.formatMessage({id: x.title})} text={intl.formatMessage({id: x.text})} />    
                     )}
                 </div>
             </div>

@@ -1,24 +1,24 @@
 [
     {
-        "title": "Worldwide Services",
-        "img": "./img/worldwide.svg",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "title": "index.keypoints.1.title",
+        "img": "../img/worldwide.svg",
+        "text": "index.keypoints.1.text"
     },
     {
-        "title": "Worldwide Services",
-        "img": "./img/worldwide.svg",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "title": "index.keypoints.2.title",
+        "img": "../img/worldwide.svg",
+        "text": "index.keypoints.2.text"
     }
     ,
     {
-        "title": "Worldwide Services",
-        "img": "./img/worldwide.svg",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "title": "index.keypoints.3.title",
+        "img": "../img/worldwide.svg",
+        "text": "index.keypoints.3.text"
     }
     ,
     {
-        "title": "Worldwide Services",
-        "img": "./img/worldwide.svg",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "title": "index.keypoints.4.title",
+        "img": "../img/worldwide.svg",
+        "text": "index.keypoints.4.text"
     }
 ]

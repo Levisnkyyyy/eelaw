@@ -1,31 +1,33 @@
 import React, {useEffect} from 'react';
+import {useIntl} from 'gatsby-plugin-intl';
 const Contact = ()=> {
+    const intl = useIntl();
     useEffect(()=> {
 
     });
     return <div className="container">
         <div className="contact-container">
-        <h3 className="title">I will be happy to hear from <span>you</span>.</h3>
+        <h3 className="title">{intl.formatMessage({id: 'index.behappy'})}</h3>
         <div className="contact-form">
             <form>
                 <div className="fullname">
-                    <label>Full Name</label>
+                    <label>{intl.formatMessage({id: 'index.form.fullname'})}</label>
                     <input type="text" name="fullname" />
                 </div>
                 <div className="phone">
-                    <label>Phone Number</label>
+                    <label>{intl.formatMessage({id: 'index.form.phone'})}</label>
                     <input type="text" name="phone" />
                 </div>
                 <div className="email">
-                    <label>Email</label>
+                    <label>{intl.formatMessage({id: 'index.form.email'})}</label>
                     <input type="text" name="email" />
                 </div>
                 <div className="content">
-                    <label>Text</label>
+                    <label>{intl.formatMessage({id: 'index.form.text'})}</label>
                     <textarea name="content"></textarea>
                 </div>
                 <div className="submit">
-                    <button className="btn send">Send</button>
+                    <button className="btn send">{intl.formatMessage({id: 'index.form.send'})}</button>
                 </div>
             </form>
         </div>
