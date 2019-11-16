@@ -10,9 +10,9 @@ const Footer = ()=> {
                 </div></div>
             <div className="info">
                 <ul className="info-list">
-                    <li><div className="icon"><i class="icofont-location-pin"></i></div> {intl.formatMessage({id: 'footer.address'})}</li>
-                    <li><div className="icon"><i class="icofont-ui-email"></i></div> {intl.formatMessage({id: 'footer.email'})}</li>
-                    <li><div className="icon"><i class="icofont-phone"></i></div> {intl.formatMessage({id: 'footer.phone'})}</li>
+                    <li><div className="icon"><i class="icofont-location-pin"></i></div><a href={"https://www.google.com/maps/search/?api=1&query="+intl.formatMessage({id: 'footer.address'})}> {intl.formatMessage({id: 'footer.address'})}</a></li>
+                    <li><div className="icon"><i class="icofont-ui-email"></i></div><a href={"mailto:"+intl.formatMessage({id: 'footer.email'})}> {intl.formatMessage({id: 'footer.email'})}</a></li>
+                    <li><div className="icon"><i class="icofont-phone"></i></div><a href={"tel:"+intl.formatMessage({id: 'footer.phone'})}> {intl.formatMessage({id: 'footer.phone'})}</a></li>
                 </ul>
             </div>
             <div className="links">

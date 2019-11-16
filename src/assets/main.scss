@@ -165,11 +165,21 @@ body {
         width: max-content;
         margin-#{$end-direction}: 3px;
         opacity: 1;
+        position: relative;
+        .lang_link {
+          position: absolute;
+          #{$start-direction}: -40px;
+          top: 5px;
+          img {
+            height: 25px;
+            width: auto;
+          }
+        }
         .menuicon {
           background-color:rgb(236, 236, 236);
           width: 35px;
           height: 35px;
-          padding: 8px;
+          padding: 6px 6px 8px 8px;
           box-shadow: 0 0 5px rgba(0,0,0,0.13);
           svg {
             width: 20px;
@@ -178,13 +188,27 @@ body {
       }
       .language {
         text-decoration: underline;
-        font-size: 0.9rem;
+        position: relative;
+        img {
+          #{$start-direction}: 0;
+          position: absolute;
+
+        }
+        font-size: 0.8rem;
         flex: 0;
         text-transform: uppercase;
-        font-weight: 600;
+        a {
+          font-weight: 400;
+        }
+
       }
     }
-
+    .lang_link {
+      img {
+        box-shadow: 0 0 7px #a9a9a9;
+        border-radius: 99px;
+      }
+    }
 }
 
 .mobile-menu {
@@ -211,6 +235,10 @@ body {
   }
   &_ul {
     margin: 15px;
+          a {
+        color: rgb(70, 70, 70);
+        text-decoration: none;
+      }
     li {
       position: relative;
       padding-bottom: 15px;
@@ -237,10 +265,7 @@ body {
           */
         }
       }
-      a {
-        color: rgb(70, 70, 70);
-        text-decoration: none;
-      }
+
     }
   }
 }
@@ -308,7 +333,7 @@ body {
        width: calc(80vw - 20px);
      }
      @include desktop {
-       width: 500px;
+       width: 600px;
      }
      article {
        width: 100%;
@@ -394,8 +419,14 @@ body {
   min-height: 600px;
   &-image {
     width: 200px;
-    height: 200px;
-    background-color: gray;
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+    img {
+    //  transform: rotate(-90deg);
+    }
+    //background: url("/images/erez.jpg");
+  //  background-size: cover;
     margin: 0 auto;
   }
   &-title {
@@ -712,7 +743,8 @@ body {
     }
 
     &-image {
-      width: 240px;
+      width: calc(100vw - 220px);
+      max-width: 240px;
       position: relative;
       img {
         width: 100%;
@@ -776,6 +808,13 @@ body {
           bottom: -20px;
         }
       }
+      .service-content {
+        p {
+          @include desktop {
+            direction: $direction;
+          }
+        }
+      }
       .service-title {
         #{$end-direction}: auto;
         #{$start-direction}: 0;
@@ -819,6 +858,7 @@ body {
       }
       .service-image {
         width: 300px;
+        max-width: 999px;
       }
     }
   }
@@ -966,9 +1006,9 @@ body {
   margin-top: 150px;
   .map {
     height: 300px;
-    
+    position: relative;
     width: 100%;
-    background-image: linear-gradient(to bottom, #fff, rgba(255,255,255,0) 20%), url('/images/map.png');
+    //background-image: linear-gradient(to bottom, #fff, rgba(255,255,255,0) 20%), url('/images/map.png');
     background-size: cover;
     background-position: 55% 40%;
     @include tablet {
@@ -979,14 +1019,16 @@ body {
 
   .map-overlay {
     position: relative;
-    top: -70px;
-    width: 90vw;
-    height: 200px;
+    top: -50px;
+    width: max-content;
+    max-width: 94vw;
+    //min-height: 100px;
+    height: auto;
     #{$start-direction}: 50%;
     transform: translateX(-50% * $transform-direction);
     .map-effect {
       position: absolute;
-      height: 100px;
+      height: 50px;
       width: 100px;
       #{$start-direction}: -7px;
       top: -7px;
@@ -1011,7 +1053,6 @@ body {
     @include desktop {
       max-width: 1200px;
       .content {
-        text-align: $start-direction;
         padding: 20px;
         h3 {
           font-size: 2rem;
@@ -1118,14 +1159,14 @@ body {
     transform: none;
   }
   h1 {
-    font-size: 2.9rem;
+    font-size: 3.3rem;
     font-weight: 800;
     color: black;
     line-height: 40px;
     margin: 0 !important;
   }
   label {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     float: #{$end-direction};
   }
 }
@@ -1207,8 +1248,9 @@ footer {
     &-image {
    //   margin: 0 auto;
       width: 150px;
-      height: 200px;
-      background-color: gray;
+      height: 230px;
+      overflow: hidden;
+   //   background-color: gray;
     }
     &-title {
       position: absolute;
@@ -1405,12 +1447,24 @@ footer {
   }
   .bigimage {
   //  height: 100px;
+  position: relative;
+  @include touch {
+    height: 300px;
+    margin-top: 15px;
+  }
     img {
       height: 250px;
       @include fullhd {
         height: 300px;
       }
+      @include touch {
+        position: absolute;
+        #{$start-direction}: 50%;
+        transform: translateX(-50% * $transform-direction);
+      }
+    //  margin: 0 auto;
     }
+    
     @include desktop {
       position: absolute;
     #{$end-direction}: 0;

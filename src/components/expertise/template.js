@@ -9,10 +9,10 @@ const Template = ({expertise, id})=> {
     return  <Layout navbarColored={true} idpage={"expertise-"+expertise}>
     <SEO title={intl.formatMessage({id: services[id].title})} />
     <div className={"container expertiseview " + expertise}>
-        <div className="backbtn"> <Link to="/expertise">Back</Link></div>
+        <div className="backbtn"> <Link to="/expertise">{intl.formatMessage({id: "back"})}</Link></div>
         <div className="info">
             <div className="info-title">
-                <img src={"../../img/"+ services[id].image.replace('png', 'svg')} />
+                <img src={"../../img/"+ services[id].image.replace('png', 'svg')} alt={intl.formatMessage({id: services[id].title})} />
                 <h2>{intl.formatMessage({id: services[id].title})}</h2>
             </div>
         </div>
@@ -22,7 +22,7 @@ const Template = ({expertise, id})=> {
            </p>
         </div>
         <div className="bigimage">
-            <img src={"/images/"+services[id].image} />
+            <img src={"/images/"+services[id].image} alt={intl.formatMessage({id: services[id].title})} />
         </div>
     </div>
     </Layout>

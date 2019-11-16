@@ -9,8 +9,9 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import "typeface-poppins"
 import Header from "../header"
-import "../../assets/main-rtl.scss"
 import "../../assets/normalize.css"
+import "../../assets/main-ltr.scss"
+
 import "../../assets/icofont.min.css"
 import Footer from "./footer";
 

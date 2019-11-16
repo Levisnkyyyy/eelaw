@@ -10,7 +10,7 @@ const AboutPage = ()=> {
             <div className="abouterez">
                 <div className="abouterez-intro">
                 <div className="abouterez-image">
-                    
+                    <img src="/images/erezpic.png" />
                     </div>
                     <div className="abouterez-title">
                         <h1>{intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "erez_eliahu"})}</span></h1>

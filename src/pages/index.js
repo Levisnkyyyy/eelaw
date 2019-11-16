@@ -1,16 +1,14 @@
-import React, { useEffect, Suspense } from "react"
+import React, { useEffect } from "react"
 
 import Layout from "../components/layout/layout"
-import lang from '../json/lang.en.json';
 import SEO from "../components/seo"
 import About from "../components/index/about";
 import Services from '../components/index/services'
 import BlogSlider from "../components/index/blogslider"
 import Contact from "../components/index/contact"
-import posts from '../json/posts.json';
 import {useMediaQuery} from 'react-responsive'; // NOT WORKING ON BUILD VERSION
 import {touch_query} from '../utilities/responsive';
-import {TweenMax,TimelineMax, Linear, Power2} from 'gsap';
+import {TweenMax,TimelineMax, Linear} from 'gsap';
 import ScrollMagic from 'ScrollMagic';
 import { useIntl } from "gatsby-plugin-intl"
 /* FOLLOWING LINE TO BE REMOVED FROM BUILD */
@@ -48,7 +46,7 @@ const HeaderComp = ()=> {
     return ()=> {
       controller.destroy(true);
     }
-  },[])
+  },[intl.locale, isTouch])
   return  <div id="index_header" className="headerbg">
   <div className="squares">
     <div className="helper_square is-hidden-touch"></div>
@@ -120,17 +118,15 @@ const IndexPage = () => {
       </div>
     </section>
     <section className="geo">
-      <div className="map">
-
+      <div className="map" style={{backgroundImage: 
+      "linear-gradient(to bottom, #fff, rgba(255,255,255,0) 20%), url('/images/map-"+intl.formatMessage({id: "index.map"})+".png')"}}>
+        
       </div>
 
       <div className="map-overlay">
         <div className="map-effect"></div>
         <div className="content">
           <h3>{intl.formatMessage({id:"index.localknowledge"})}</h3>
-          <p>
-              {intl.formatMessage({id:"index.localknowledgepara"})}    
-          </p>
         </div>
       </div>
     </section>
@@ -141,3 +137,4 @@ const IndexPage = () => {
 }
 
 export default IndexPage;
+//

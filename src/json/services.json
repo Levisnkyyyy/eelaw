@@ -1,14 +1,22 @@
 [
     {
         "id": "1",
-        "title": "services.1.title",
-        "url": "wills",
-        "image": "will.png",
-        "preview": "services.1.preview",
-        "content": "services.1.content"
+        "title": "services.3.title",
+        "url": "commercial",
+        "image": "comm.png",
+        "preview": "services.3.preview",
+        "content": "services.3.content"
     },
     {
         "id": "2",
+        "title": "services.4.title",
+        "url": "energy",
+        "image": "energy.png",
+        "preview": "services.4.preview",
+        "content": "services.4.content"
+    },
+    {
+        "id": "3",
         "title": "services.2.title",
         "url": "realestate",
         "image": "real.png",
@@ -16,20 +24,12 @@
         "content": "services.2.content"
     },
     {
-        "id": "3",
-        "title": "services.3.title",
-        "url": "commercial",
-        "image": "comm.png",
-        "preview": "services.3.preview",
-        "content": "services.3.content"
-    }
-    ,
-    {
         "id": "4",
-        "title": "services.4.title",
-        "url": "energy",
-        "image": "energy.png",
-        "preview": "services.4.preview",
-        "content": "services.4.content"
+        "title": "services.1.title",
+        "url": "wills",
+        "image": "will.png",
+        "preview": "services.1.preview",
+        "content": "services.1.content"
     }
+
 ]

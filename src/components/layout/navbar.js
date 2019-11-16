@@ -1,22 +1,14 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {Link} from 'gatsby';
-import {useIntl, changeLocale} from 'gatsby-plugin-intl'
+import {useIntl} from 'gatsby-plugin-intl'
 import {TweenMax} from 'gsap';
 
 const Navbar = ({colored = false})=> {
     const intl = useIntl();
     const styles = (colored) ? {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'} : {};
-    const coloredstyle = {backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3'};
     const menu = useRef(null);
     const [mobileMenu,setMenu] = useState(false);
-    const [localeChange, setLocale] = useState(intl.locale);
-    useEffect(()=> {
-      if(localeChange !== intl.locale)
-      {
-        changeLocale(localeChange);
-     //   setTimeout(()=> <Redirect to={`/`} />, 300);
-      }
-    }, [localeChange, intl.locale]);
+
     const handleMenuClick = ()=> {
       if(mobileMenu) {
         TweenMax.to(menu.current, 0.5, {height: '0', 
@@ -27,7 +19,7 @@ const Navbar = ({colored = false})=> {
           TweenMax.set(menu.current, {visibility: 'hidden'});
         }});
       } else {
-        TweenMax.to(menu.current, 0.5, {height: '220px', onStart:()=> {
+        TweenMax.to(menu.current, 0.5, {height: '230px', onStart:()=> {
           let navbar = document.getElementById("navbar");
           if(!navbar.classList.contains('colored')) {
             document.getElementById("navbar").classList.add("colored");
@@ -38,6 +30,7 @@ const Navbar = ({colored = false})=> {
       }
       setMenu(!mobileMenu);
     }
+    const otherLanguage = intl.locale === 'he' ? 'en' : 'he';
     return <><nav className={"nav " + ((colored) ? 'colored': '')} id="navbar" style={styles}>
     <div className="nav-left">
       <div className="nav-left_logo">
@@ -61,15 +54,17 @@ const Navbar = ({colored = false})=> {
             <Link to="/expertise">{intl.formatMessage({id: "nav.expertise"})}</Link>
           </div>
           <div className="column nav-right_phone">
-            <Link to="/">+972 54 - 543 - 5444</Link>
+            <Link to="/">+972 54 - 450 - 3432</Link>
           </div>
           <div className="column language">
-             <Link to="/he">{intl.locale}</Link>
+          <Link className="lang_link" to={"/"+otherLanguage}><img src={"/img/"+otherLanguage+".png"} /></Link>
           </div>
         </div>
-        <div className="nav-right_menu is-hidden-desktop" onClick={()=> handleMenuClick()}>
-          
-            <MenuIcon />
+        <div className="nav-right_menu is-hidden-desktop">
+           <Link className="lang_link" to={"/"+otherLanguage}><img src={"/img/"+otherLanguage+".png"} /></Link>
+            <div className="menu_icon_container" onClick={()=> handleMenuClick()} >
+              <MenuIcon />
+            </div>
           
         </div>
       </div>
@@ -77,10 +72,10 @@ const Navbar = ({colored = false})=> {
   </nav>
   <div ref={menu} className={"mobile-menu " + (mobileMenu ? 'active' : '')}>
       <ul className="mobile-menu_ul">
-          <li className="selected"><Link to="/" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.home"})}</Link></li>
-          <li><Link to="/about" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.about"})}</Link></li>
-          <li><Link to="/expertise" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.expertise"})}</Link></li>
-          <li><Link to="/#contact" onClick={()=> handleMenuClick()}>{intl.formatMessage({id: "nav.contact"})}</Link></li>
+          <Link to="/" onClick={()=> handleMenuClick()}><li className="selected">{intl.formatMessage({id: "nav.home"})}</li></Link>
+          <Link to="/about" onClick={()=> handleMenuClick()}><li>{intl.formatMessage({id: "nav.about"})}</li></Link>
+          <Link to="/expertise" onClick={()=> handleMenuClick()}><li>{intl.formatMessage({id: "nav.expertise"})}</li></Link>
+          <Link to="/#contact" onClick={()=> handleMenuClick()}><li>{intl.formatMessage({id: "nav.contact"})}</li></Link>
       </ul>
   </div>
   </>

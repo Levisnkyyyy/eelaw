@@ -7,7 +7,7 @@ const About = ()=> {
         <div className="container">
             <div className="about-leftside">
                 <div className="about-image">
-                    
+                    <img src="/images/erezpic.png" />
                 </div>
                 <div className="about-title">
                     {intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "index.erez"})}</span>
@@ -23,7 +23,7 @@ const About = ()=> {
                 </div>
                 <div className="about-keypoints">
                     {keypoints.map((x) =>
-                        <Keypoint img={x.img} title={intl.formatMessage({id: x.title})} text={intl.formatMessage({id: x.text})} />    
+                        <Keypoint key={x.title} img={x.img} title={intl.formatMessage({id: x.title})} text={intl.formatMessage({id: x.text})} />    
                     )}
                 </div>
             </div>
@@ -36,7 +36,7 @@ export default About
 const Keypoint = ({img, title, text}) => {
     return  <div className="keypoint">
     <div className="keypoint-image">
-         <img src={img} />
+         <img src={img} alt={title} />
     </div>
     <div className="keypoint-text">
     <h2>{title}</h2>

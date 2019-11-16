@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import services from '../../json/services';
 import { Link } from 'gatsby';
 import { useIntl } from "gatsby-plugin-intl"
-import { TimelineMax, TweenMax, Power2, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import {useMediaQuery} from 'react-responsive'; // NOT WORKING ON BUILD VERSION
 import ScrollMagic from 'ScrollMagic';
 /* FOLLOWING LINE TO BE REMOVED FROM BUILD */
@@ -77,7 +77,7 @@ const Service = ({ service, align, id }) => {
             scene.destroy(true);
             scene = null;
         }
-    },[align, id]);
+    },[align, id, isMobile]);
     return  <div ref={servRef} id={"service-"+id} className={"service " + align}>
         <div className={"service-image " + ((align === 'left') ? '' : 'smaller')}>
             <img className="service-image_img" src={"/images/" + service.image} alt={intl.formatMessage({id: service.title})} />

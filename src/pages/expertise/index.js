@@ -32,7 +32,7 @@ const Expertise = ({ex}) => {
     const intl = useIntl();
     return                     <div className="expertise">
     <div className="expertise-image">
-      <img src={"../../img/"+ex.image.replace('png', 'svg')} />
+      <img src={"../../img/"+ex.image.replace('png', 'svg')} alt={intl.formatMessage({id: ex.title})} />
     </div>
     <div className="expertise-title">
         <h2>{intl.formatMessage({id: ex.title})}</h2>

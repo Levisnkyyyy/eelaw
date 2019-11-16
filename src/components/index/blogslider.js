@@ -41,12 +41,12 @@ const BlogSlider = ()=> {
     <SliderArticle id={selected} direction={direction} switchto={selected} />
     <div className="blogslider-footer">
         <div className="buttons">
-            <div className="left" onClick={()=> handleNavClick(-1)}><i class="icofont-arrow-left"></i></div>
-            <div className="right" onClick={()=> handleNavClick(1)}><i class="icofont-arrow-right"></i></div>
+            <div className="left" onClick={()=> handleNavClick(-1)}><i className="icofont-arrow-left"></i></div>
+            <div className="right" onClick={()=> handleNavClick(1)}><i className="icofont-arrow-right"></i></div>
         </div>
         <div className="navigation">
             {posts.filter(e=>e.type === 'slider').map((pt,index) =>
-                <label onClick={()=> setSelected(index)} className={selected === index ? 'active' : ''}>0{index+1}</label>
+                <label key={index} onClick={()=> setSelected(index)} className={selected === index ? 'active' : ''}>0{index+1}</label>
             )}
         </div>
         <div className="btn readmore" onClick={()=> handleBtnClick()}>
@@ -60,7 +60,7 @@ const SliderArticle = ({id,direction})=> {
     const article = useRef(null);
     useEffect(()=> {
         TweenMax.fromTo(article.current, 1, {x: 500*direction, opacity: 0}, {x:0, ease:Power2.easeOut, opacity: 1});
-    },[id]);
+    },[id, direction]);
     return     <article ref={article} className="blogslider-article">
     <div className="article-title">
         <h2>{posts[id].title}</h2>
@@ -72,28 +72,3 @@ const SliderArticle = ({id,direction})=> {
     </div>
 </article>;
 }
-function usePrevious(value) {
-
-    // The ref object is a generic container whose current property is mutable ...
-  
-    // ... and can hold any value, similar to an instance property on a class
-  
-    const ref = useRef();
-  
-    
-  
-    // Store current value in ref
-  
-    useEffect(() => {
-  
-      ref.current = value;
-  
-    }, [value]); // Only re-run if value changes
-  
-    
-  
-    // Return previous value (happens before update in useEffect above)
-  
-    return ref.current;
-  
-  }

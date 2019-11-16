@@ -1,8 +1,6 @@
 
 import React, {useEffect} from "react"
 
-import {TweenMax,TimelineMax, Linear, Power2} from 'gsap';
-
 import Navbar from "../components/layout/navbar";
 
 
