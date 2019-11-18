@@ -68,9 +68,9 @@ const HeaderComp = ()=> {
         </div>
         <div className="intro-article">
           <article>
-            <div className="article-title">
+            {/*<div className="article-title">
               <h2>{intl.formatMessage({id: "index.heading"})}</h2>
-            </div>
+</div>*/}
             <div className="article-content">
               <p>{intl.formatMessage({id: "index.content"})}</p>
             </div>

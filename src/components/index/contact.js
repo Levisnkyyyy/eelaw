@@ -47,9 +47,9 @@ const Contact = ()=> {
                             (emailState === 1 &&
                                 <Loader />
                             ) || (emailState === 2 &&
-                                <label>Thank you!</label>
+                                <label>{intl.formatMessage({id: 'index.form.thankyou'})}</label>
                             ) || (emailState === 3 &&
-                                <label>Error</label>
+                                <label>{intl.formatMessage({id: 'index.form.error'})}</label>
                             )
                         }
                     </button>

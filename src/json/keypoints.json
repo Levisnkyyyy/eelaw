@@ -1,24 +1,24 @@
 [
     {
         "title": "index.keypoints.1.title",
-        "img": "../img/worldwide.svg",
+        "img": "../img/reliability.svg",
         "text": "index.keypoints.1.text"
     },
     {
         "title": "index.keypoints.2.title",
-        "img": "../img/worldwide.svg",
+        "img": "../img/professionalism.svg",
         "text": "index.keypoints.2.text"
     }
     ,
     {
         "title": "index.keypoints.3.title",
-        "img": "../img/worldwide.svg",
+        "img": "../img/creativity.svg",
         "text": "index.keypoints.3.text"
     }
     ,
     {
         "title": "index.keypoints.4.title",
-        "img": "../img/worldwide.svg",
+        "img": "../img/integrity.svg",
         "text": "index.keypoints.4.text"
     }
 ]

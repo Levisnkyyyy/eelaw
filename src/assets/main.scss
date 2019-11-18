@@ -47,9 +47,12 @@ body {
 }
 #index_header {
   width: 100%;
-  background: url('../images/buildings.jpg');
+  background: url('/images/buildings.jpg');
   background-size: auto 100%;
   background-attachment: fixed;
+  @include touch {
+    background-attachment:scroll;
+  }
   @include desktop {
     background-size: 100% auto;
   }
@@ -355,7 +358,7 @@ body {
         margin-top: 5px;
         line-height: 1.4rem;
         @include tablet {
-          margin-top: 10px;
+          margin-top: 40px;
         }
       }
       .article-link {
@@ -1022,6 +1025,7 @@ body {
     top: -50px;
     width: max-content;
     max-width: 94vw;
+    min-width: 50vw;
     //min-height: 100px;
     height: auto;
     #{$start-direction}: 50%;

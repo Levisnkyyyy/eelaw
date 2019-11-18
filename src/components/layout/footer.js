@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import {useIntl} from 'gatsby-plugin-intl';
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 const Footer = ()=> {
     const intl = useIntl();
     return <><div className="container">
@@ -27,7 +28,7 @@ const Footer = ()=> {
     </div>
     <div className="footer-copyright">
         <p>{intl.formatMessage({id: 'footer.copyright'})}</p>
-        <label>Designed by <a href="http://benlevi.me">BENLEVI</a></label>
+        <label>Designed by <OutboundLink href="http://benlevi.me">BENLEVI</OutboundLink></label>
     </div>
     </>
 }

@@ -15,3 +15,14 @@ body {
     .navigation { float:right; }
 }
 
+.nav-right_phone {
+    a {
+        unicode-bidi: bidi-override;
+        direction: ltr;
+    }
+}
+.nav-right_menu {
+    .menuicon {
+        padding: 5px 7px 8px 0px !important;
+    }
+}
