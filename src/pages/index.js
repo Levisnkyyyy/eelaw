@@ -72,7 +72,9 @@ const HeaderComp = ()=> {
               <h2>{intl.formatMessage({id: "index.heading"})}</h2>
 </div>*/}
             <div className="article-content">
+            <div className="poly"></div>
               <p>{intl.formatMessage({id: "index.content"})}</p>
+              
             </div>
             {/*<div className="article-link">
               <a href="/">{intl.formatMessage({id: "readmore"})}</a>
@@ -111,8 +113,8 @@ const IndexPage = () => {
         <div className="quote-profile">
           <img src="/images/avatar.png" className="avatar" alt="Erez" />
           <div className="quote-profile-desc">
-            <h4>{intl.formatMessage({id: "erez_eliahu"})}</h4>
-            <label>{intl.formatMessage({id: "advocate_notary"})}</label>
+            <h4>{intl.formatMessage({id: "index.erez_eliahu_full"})}</h4>
+            <label>{intl.formatMessage({id: "index.advocate_notary_full"})}</label>
           </div>
         </div>
       </div>
@@ -130,7 +132,7 @@ const IndexPage = () => {
         </div>
       </div>
     </section>
-    <section className="contact" id="#contact">
+    <section className="contact" id="contact">
       <Contact />
     </section>
   </Layout>

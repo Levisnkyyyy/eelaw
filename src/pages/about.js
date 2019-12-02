@@ -13,7 +13,7 @@ const AboutPage = ()=> {
                     <img src="/images/erezpic.png" alt="Erez Eliahu" />
                     </div>
                     <div className="abouterez-title">
-                        <h1>{intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "erez_eliahu"})}</span></h1>
+                        <h1>{intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "index.erez_eliahu_full"})}</span></h1>
                     </div>
                 </div>
                 <div className="abouterez-context" dangerouslySetInnerHTML={{__html: intl.formatMessage({id: "about.fulltext"})}}>

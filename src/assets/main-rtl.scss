@@ -26,3 +26,23 @@ body {
         padding: 5px 7px 8px 0px !important;
     }
 }
+
+.about-keynav {
+    i {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+
+.nofloat {
+    float: none !important;
+}
+
+.poly {
+    @media screen { 
+        @media (min-width: 0px) {
+        @include desktop {
+            shape-outside: polygon(154px -39px, 59.95% -38px, -14.89% 28.33%, -10.83% 17.51%) !important;
+        }
+    } }
+}

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect } from "react"
+import React, { useEffect,createContext, useContext } from "react"
 import PropTypes from "prop-types"
 import "typeface-poppins"
 import Header from "../header"
@@ -17,7 +17,7 @@ import Footer from "./footer";
 
 import "../../assets/main-ltr.scss"// CHANGE ON BUILD
 
-
+export const currentLang = React.createContext("en");
 /*
 CHANGE GATSBY-CONFIG:
 Intl language, default.
@@ -32,54 +32,38 @@ otherlanguage const
 changeLang
 
 ON BUILD:
-gatsby build --prefix-paths FOR ENGLISH V
+gatsby build --prefix-paths 
+FOR ENGLISH V
 
 */
 const Layout = ({ header, navbarColored = false, idpage, children }) => {
-
+  const lang = useContext(currentLang);
   const getLocation = () => {
     if (typeof window !== `undefined`) {
-
-
       fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then((data) => {
-          if (data.country_name === 'Israel') { // CHANGE ON BUILD
+          
+          if (data.country_name === 'Israel' && lang === "en") { // CHANGE ON BUILD
             if (typeof (Storage) !== "undefined") {
               if (localStorage.getItem("defaultLang") === null || localStorage.getItem("defaultLang") !== 'en') {
                 localStorage.setItem("defaultLang", "he");
                 if (typeof window !== `undefined`) window.location.replace("http://ee-law.com/");
               }
             }
-
           }
-        })
-        .catch(console.log);
-    }
-  }
-              /* FOR ENGLISH SITE:
-          if (data.country_name === 'Israel') { // CHANGE ON BUILD
-            if (typeof (Storage) !== "undefined") {
-              if (localStorage.getItem("defaultLang") === null || localStorage.getItem("defaultLang") !== 'en') {
-                localStorage.setItem("defaultLang", "he");
-                if (typeof window !== `undefined`) window.location.replace("http://ee-law.com/");
-              }
-            }
-
-          }
-
-              FOR HEBREW:
-          if (data.country_name !== 'Israel') { // CHANGE ON BUILD
+          if (data.country_name !== 'Israel' && lang === "he") { // CHANGE ON BUILD
             if (typeof (Storage) !== "undefined") {
               if (localStorage.getItem("defaultLang") === null || localStorage.getItem("defaultLang") !== 'he') {
                 localStorage.setItem("defaultLang", "en");
                 if (typeof window !== `undefined`) window.location.replace("http://ee-law.com/en/");
               }
             }
-
           }
-
-            */
+        })
+        .catch(console.log);
+    }
+  }
   useEffect(() => {
 
     getLocation();

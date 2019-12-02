@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { Link } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl'
 import { TweenMax } from 'gsap';
-
+import {currentLang} from '../layout/layout';
 const Navbar = ({ colored = false }) => {
   const intl = useIntl();
   const styles = (colored) ? { backgroundColor: '#f6f6f6', boxShadow: '0 1px 10px #d3d3d3' } : {};
@@ -34,21 +34,39 @@ const Navbar = ({ colored = false }) => {
     }
     setMenu(!mobileMenu);
   }
-   /* const changeLang = () => {
+  /*  const changeLang = () => { // FOR HEBREW SITE
       if (typeof (Storage) !== "undefined") {
         localStorage.setItem("defaultLang", "en"); // change thiss
       }
     }
     const otherLanguage = <a className="lang_link" href={"http://ee-law.com/en/"} onClick={()=>changeLang()}><img src={"/img/en.png"} alt="country" /></a>;
+   
     */
+   const lang = useContext(currentLang);
+   const changeLang = () => { // FOR ENGLISH SITE
+    if(lang === 'en') {
+      if (typeof (Storage) !== "undefined") {
+        localStorage.setItem("defaultLang", "he"); // change thiss
+      }
+    } else {
+      if (typeof (Storage) !== "undefined") {
+        localStorage.setItem("defaultLang", "en"); // change thiss
+      }
+    }
+
+  }
+  const otherLanguage =  lang === 'en' ? <a className="lang_link" href="http://ee-law.com/" onClick={() => changeLang()}><img src={"/img/he.png"} alt="country" /></a> : <a className="lang_link" href={"http://ee-law.com/en/"} onClick={()=>changeLang()}><img src={"/img/en.png"} alt="country" /></a>;
+ 
+    /*
   
-  const changeLang = () => {
+  const changeLang = () => { // FOR ENGLISH SITE
     if (typeof (Storage) !== "undefined") {
       localStorage.setItem("defaultLang", "he"); // change thiss
     }
   }
   const otherLanguage = <a className="lang_link" href="http://ee-law.com/" onClick={() => changeLang()}><img src={"/img/he.png"} alt="country" /></a>; // CHANGE ON BUILD// CHANGE ON BUILD// CHANGE ON BUILD// CHANGE ON BUILD// CHANGE ON BUILD
  
+  */
   return <><nav className={"nav " + ((colored) ? 'colored' : '')} id="navbar" style={styles}>
     <div className="nav-left">
       <div className="nav-left_logo">
@@ -71,6 +89,13 @@ const Navbar = ({ colored = false }) => {
         <div className="column">
           <Link to="/expertise">{intl.formatMessage({ id: "nav.expertise" })}</Link>
         </div>
+
+        <div className="column nav-right_contact">
+          <a href="/#contact">
+            
+           <button className="btn contact">{intl.formatMessage({ id: "nav.contact" })}</button>
+          </a>
+        </div>
         <div className="column nav-right_phone">
           <a href="telto:+972544503432">+972 54 - 450 - 3432</a>
         </div>
@@ -90,7 +115,7 @@ const Navbar = ({ colored = false }) => {
   </nav>
     <div ref={menu} className={"mobile-menu " + (mobileMenu ? 'active' : '')}>
       <ul className="mobile-menu_ul">
-        <Link to="/" onClick={() => handleMenuClick()}><li className="selected">{intl.formatMessage({ id: "nav.home" })}</li></Link>
+        <Link to="/" onClick={() => handleMenuClick()}><li>{intl.formatMessage({ id: "nav.home" })}</li></Link>
         <Link to="/about" onClick={() => handleMenuClick()}><li>{intl.formatMessage({ id: "nav.about" })}</li></Link>
         <Link to="/expertise" onClick={() => handleMenuClick()}><li>{intl.formatMessage({ id: "nav.expertise" })}</li></Link>
         <Link to="/#contact" onClick={() => handleMenuClick()}><li>{intl.formatMessage({ id: "nav.contact" })}</li></Link>

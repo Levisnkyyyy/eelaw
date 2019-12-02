@@ -7,7 +7,7 @@ const Footer = ()=> {
     return <><div className="container">
         <div className="footer-table">
             <div className="name"><div className="textlogo">
-                <h1>{intl.formatMessage({id: 'erez_eliahu'})}</h1><label>{intl.formatMessage({id: 'advocate_notary'})}</label>
+                <h1>{intl.formatMessage({id: 'erez_eliahu'})}</h1><label className="nofloat">{intl.formatMessage({id: 'advocate_notary'})}</label>
                 </div></div>
             <div className="info">
                 <ul className="info-list">
@@ -19,9 +19,9 @@ const Footer = ()=> {
             <div className="links">
                 <ul className="links-list">
                     <li><Link to="/">{intl.formatMessage({id: 'nav.home'})}</Link></li>
-                    <li><Link to="/">{intl.formatMessage({id: 'nav.about'})}</Link></li>
-                    <li><Link to="/">{intl.formatMessage({id: 'nav.expertise'})}</Link></li>
-                    <li><Link to="/">{intl.formatMessage({id: 'nav.contact'})}</Link></li>
+                    <li><Link to="/about">{intl.formatMessage({id: 'nav.about'})}</Link></li>
+                    <li><Link to="/expertise">{intl.formatMessage({id: 'nav.expertise'})}</Link></li>
+                    <li><Link to="/#contact">{intl.formatMessage({id: 'nav.contact'})}</Link></li>
                 </ul>
             </div>
         </div>

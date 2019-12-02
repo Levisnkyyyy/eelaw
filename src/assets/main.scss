@@ -106,13 +106,13 @@ body {
     }
     &-left {
       display: table-cell;
-      width: 90%;
+      //width: 90%;
       vertical-align: middle;
       a {
         color: black;
       }
       @include desktop {
-        width: 35%;
+        width: 25%;
       }
         &_logo {
         //  display: inline-block;
@@ -129,6 +129,7 @@ body {
     &-right {
       display: table-cell;
       vertical-align: middle;
+      width: 30px;
       position: relative;
       >.columns {
         margin-bottom: 0;
@@ -143,7 +144,15 @@ body {
         }
       }
     //  float: #{$end-direction};
-      &_phone {
+    &_contact {
+      position: relative;
+      button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &_phone {
         position: relative;
         
         a {
@@ -152,6 +161,9 @@ body {
           &:hover {
             color: rgb(66, 210, 185);
           }
+        }
+        @media screen and (max-width: 1338px) {
+          display: none;
         }
         &:before {
           content: '';
@@ -327,24 +339,31 @@ body {
     @include mobile {
       padding-top: 40px;
     }
+    @include desktop {
+      padding-top: 50px;
+    }
    &-article {
      width: 100%;
-     margin-top: 50px;
+     margin-top: 30px;
      
      padding: 10px;
      @include tablet {
        width: calc(80vw - 20px);
      }
      @include desktop {
-       width: 600px;
+       width: 800px;
      }
      article {
        width: 100%;
        background-color: rgba(255,255,255,0.6);
        padding: 15px;
+       @include tablet {
+         margin-top: 40px;
+       }
       // text-align: center;
       @include desktop {
-        background-color: transparent;
+          background-color: transparent;
+     //   padding: 5px;
       }
       .article-title {
         h2 {
@@ -357,8 +376,38 @@ body {
       .article-content {
         margin-top: 5px;
         line-height: 1.4rem;
-        @include tablet {
-          margin-top: 40px;
+        position: relative;
+      //  clip-path: polygon(0 0, 39% 0, 100% 100%, 0% 100%);
+        
+        @include desktop {
+          margin-top: 34px;
+       //   background-color:rgba(239,239,239, 0.5);
+          padding: 5px;
+          width: 50vw;
+        }
+        p {
+      //    clip-path: polygon(0px 0px, 72.45% 3px, 168.36% 100.00%, 0.17% 100.34%);
+       //   shape-outside: circle();
+        }
+        .poly {
+         // clip-path: polygon(0px 0px, 72.45% 3px, 168.36% 100.00%, 0.17% 100.34%);
+         
+            @include desktop {
+              shape-outside: polygon(176px 0px, 77.2% -6px, 140.11% 20.83%, 138.92% 33.34%);
+            float: #{$end-direction};
+            
+            width: 400px;
+            height: 600px;
+            }
+            @supports (-ms-ime-align:auto)
+            { 
+              display: none;
+            }
+        @supports (-ms-accelerator:auto)
+        {
+          display: none;
+        }
+          
         }
       }
       .article-link {
@@ -496,7 +545,7 @@ body {
     overflow-x: scroll;
     white-space: nowrap;
     margin-top: 30px;
-    height: 115px;
+    height: 180px;
     @include tablet {
       overflow: hidden;
       white-space: normal;
@@ -713,7 +762,18 @@ body {
   color: white;
   font-weight: 500;
   text-align: center;
-  
+  cursor: pointer;
+  transition: color 0.4s ease;
+  transition: background-color 0.4s ease;
+  &.invert {
+    background-color: transparent;
+    border: 3px solid $color-1;
+    color: $color-1;
+    &:hover {
+      background-color: $color-1;
+      color: white;
+    }
+  }
 }
 
 .services {
@@ -782,6 +842,10 @@ body {
         font-size: 1.4rem;
         color: $color-2;
         font-weight: 600;
+        @media screen and (max-width: 578px) {
+          width: 200px;
+          margin-top: -25px;
+        }
       }
     }
     &-content {
@@ -1155,6 +1219,7 @@ body {
 .textlogo {
   position: relative;
   width: max-content;
+  
   margin-top: 40px;
   #{$start-direction}: 50%;
   transform: translateX(-50% * $transform-direction);
@@ -1162,8 +1227,10 @@ body {
     #{$start-direction}: auto;
     transform: none;
   }
+  
   h1 {
     font-size: 3.3rem;
+    font-family: 'Rubik', sans-serif;
     font-weight: 800;
     color: black;
     line-height: 40px;
@@ -1171,12 +1238,16 @@ body {
   }
   label {
     font-size: 1.1rem;
-    float: #{$end-direction};
+ //   float: #{$end-direction};
+    float: #{$start-direction};
   }
 }
 
 footer {
   position: relative;
+  .textlogo {
+    display: inline-block;
+  }
   .footer-table {
     width: 100%;
     @include tablet {
@@ -1396,7 +1467,7 @@ footer {
       background-color: $color-1;
       display: block;
       #{$start-direction}: -30px;
-      top: 10px;
+      top: 13px;
       position: relative;
       content: '';
 

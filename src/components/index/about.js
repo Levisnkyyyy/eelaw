@@ -10,7 +10,7 @@ const About = ()=> {
                     <img src="/images/erezpic.png" alt="Erez Eliahu" />
                 </div>
                 <div className="about-title">
-                    {intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "index.erez"})}</span>
+                    {intl.formatMessage({id: "index.about"})} <span>{intl.formatMessage({id: "index.erez_eliahu_full"})}</span>
                 </div>
                 <div className="about-paragraph">
                     <p>{intl.formatMessage({id: "index.about_text"})}</p>

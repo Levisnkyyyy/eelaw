@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Erez Eliahu`,
+    title: `Eliahu & Co.`,
     description: `Law firm based in Israel & Manhattan. Offering commercial, energy and infastructure, real estate and wills & inheritance services.`,
     author: `@eelaw`,
   }, 
   pathPrefix: `/en`,
    /*
   siteMetadata: {
-    title: `ארז אליהו`,
+    title: `אליהו ושות'`,
     description: `משרד עורכי דין, ארז אליהו ושות' מתעסקים בדיני מסחר, צוואות וירושות, אנרגיה ותשתיות, מקרקעין ונדל"ן. משרדינו מעניק שירותים במספר מדינות`,
     author: `@eelaw`,
   },*/
