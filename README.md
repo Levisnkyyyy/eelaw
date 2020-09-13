@@ -7,6 +7,4 @@ http://ee-law.com/
 
 #### Please visit 'develop' branch for the latest development version.
 
-### Are you a recruiter?
-There are some things I want to say.
-https://github.com/Levisnkyyyy/portfolio/blob/master/RECRUITER.md
+Take a note this project is outdated.
